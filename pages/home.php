@@ -1,14 +1,8 @@
 <?php
 
+  
 
-
-
-
-
-
-    // require header
-    require "parts/header.php";
-
+    require dirname(__DIR__) . '/parts/header.php';
 ?>
     <div class="container mx-auto my-5" style="max-width: 500px;">
       <h1 class="h1 mb-4 text-center">My Blog</h1>
@@ -50,10 +44,14 @@
       </div>
 
       <div class="mt-4 d-flex justify-content-center gap-3">
+      <?php if ( Authentication::isLoggedIn() ) : ?>
+        <a href="/logout" class="btn btn-link btn-sm">Logout</a>
+      <?php else : ?>
         <a href="/login" class="btn btn-link btn-sm">Login</a>
         <a href="/signup" class="btn btn-link btn-sm">Sign Up</a>
+      <?php endif; ?>
+      </div>
     </div>
-
 <?php
 
-require "parts/footer.php";
+    require dirname(__DIR__) . '/parts/footer.php';
